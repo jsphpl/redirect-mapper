@@ -16,7 +16,7 @@ def main(args):
     print('Threshold is %f' % args.threshold)
 
     # Do the hard work
-    iterator = levenshteinMatch(list1, list2, args.minimum, args.threshold, args.drop_exact)
+    iterator = levenshteinMatch(list1, list2, args.threshold, args.drop_exact)
 
     # Ouput results
     if (args.csv):
@@ -33,13 +33,12 @@ def main(args):
         print('--------------------------------------------------------------------------------')
         print('Note: Use the --csv flag to save results into a file')
 
-def levenshteinMatch(list1, list2, minimum, threshold, drop_exact):
+def levenshteinMatch(list1, list2, threshold, drop_exact):
     """Find matches based on the levenshtein distance.
 
     Arguments:
         list1 {List} -- List of target items for which to find matches
         list2 {List} -- List of search items on which to search for matches
-        minimum {float} -- Score at which a pair is considered a match
         threshold {float} -- Range within which two scores are considered equal
         drop_exact {bool} -- Omit exact matches
     """
@@ -90,8 +89,6 @@ if __name__ == '__main__':
                         help='List of search items on which to search for matches. (1 item per line)')
     parser.add_argument('-t', '--threshold', type=float, default=0.05, metavar='VALUE',
                         help='Range within which two scores are considered equal. (default: 0.05)')
-    parser.add_argument('-m', '--minimum', type=float, default=0.7, metavar='VALUE',
-                        help='Score at which a pair is considered a match. (default: 0.7)')
     parser.add_argument('-c', '--csv', type=str, metavar='PATH',
                         help='If specified, the output will be formatted as CSV and written to PATH')
     parser.add_argument('-d', '--drop-exact', action='store_true',

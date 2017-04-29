@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""Generates a redirect map from two sitemaps for website migration.
+
+By default, all matches are dumped on the standard output. If an item
+from list1 is exactly contained in list2, it will be assigned right
+away, without calculating distance or checking for ambiguity.
+
+Issues & Documentation: https://github.com/jsphpl/redirect-mapper
+"""
+
 import csv
 import argparse
 import Levenshtein
@@ -77,12 +86,7 @@ def levenshteinMatch(list1, list2, threshold, drop_exact):
             yield (key, winner, winner_score, is_ambiguous, False, alternatives)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Generates a redirect map from two sitemaps for ' +
-                                                 'website migration. By default, all matches are ' +
-                                                 'dumped on the standard output.\n\n' +
-                                                 'If an item from list1 is exactly contained in ' +
-                                                 'list2, it will be assigned directly, without ' +
-                                                 'calculating distance or checking for ambiguity.')
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument('list1', type=file,
                         help='List of target items for which to find matches. (1 item per line)')
     parser.add_argument('list2', type=file,

@@ -40,8 +40,8 @@ def main(args):
 def aggregate(entry):
     """Aggregate urls of sitemaps from one entry xml sitemap"""
     file = urlopen(entry, context=ssl_context)
-
     tree = ElementTree.parse(file)
+
     for sitemap in tree.getroot().findall(TAGS['SITEMAP']):
         location = sitemap.find(TAGS['LOCATION'])
         if location is not None:

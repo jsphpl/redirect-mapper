@@ -38,6 +38,7 @@ optional arguments:
                         Range within which two scores are considered equal. (default: 0.05)
   -c PATH, --csv PATH   If specified, the output will be formatted as CSV and written to PATH
   -d, --drop-exact      If specified, exact matches will be ommited from the output
+```
 
 ### Examples
 

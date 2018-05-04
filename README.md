@@ -14,7 +14,7 @@ It can of course be used as a generic tool to fuzzy match two sets of strings. I
 
 1. Clone this repository `git clone https://github.com/jsphpl/redirect-mapper`
 2. Enter it `cd redirect-mapper`
-3. Install dependencies `python setup.py`
+3. Install dependencies `python setup.py install`
 4. Use it:
 
 ```

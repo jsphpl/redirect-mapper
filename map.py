@@ -87,9 +87,9 @@ def levenshteinMatch(list1, list2, threshold, drop_exact):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawTextHelpFormatter)
-    parser.add_argument('list1', type=file,
+    parser.add_argument('list1', type=argparse.FileType('r'),
                         help='List of target items for which to find matches. (1 item per line)')
-    parser.add_argument('list2', type=file,
+    parser.add_argument('list2', type=argparse.FileType('r'),
                         help='List of search items on which to search for matches. (1 item per line)')
     parser.add_argument('-t', '--threshold', type=float, default=0.05, metavar='VALUE',
                         help='Range within which two scores are considered equal. (default: 0.05)')
